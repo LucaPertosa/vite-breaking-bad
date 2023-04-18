@@ -11,7 +11,7 @@ export default {
 
 <template>
     <div class="card mb-4 text-center ms_background1">
-        <img class="card-img-top " :src="img" :alt="name">
+        <img class="card-img-top" :src="img" :alt="name">
         <div class="ms_card-body">
             <h3 class="ms_card-title">{{ name }}</h3>
             <p class="card-text">{{ archetype }}</p>
@@ -22,7 +22,7 @@ export default {
 <style lang="scss" scoped>
 @use "../style/partials/variables" as *;
 .ms_background1 {
-    background-color: $main-bgc;
+    background-color: white;
 }
 .ms_card-title {
     font-size: 1rem;
