@@ -1,13 +1,15 @@
 <script>
 import AppHeader from "./components/AppHeader.vue";
 import CardsLists from "./components/CardsLists.vue";
+import AppLoader from "./components/AppLoader.vue";
 import axios from "axios";
 import { store } from "./store";
 
 export default {
     components: {
         AppHeader,
-        CardsLists
+        CardsLists,
+        AppLoader
     },
     data() {
         return {
@@ -15,8 +17,15 @@ export default {
         }
     },
     mounted() {
-        axios.get(store.apiURL).then((resp) => {
+        store.loading = true
+        axios.get(store.apiURL, {
+            params: {
+                num: 40,
+                offset: 0,
+            }
+        }).then((resp) => {
             this.store.cards = resp.data.data;
+            store.loading = false
         })
     }
 }
@@ -24,7 +33,9 @@ export default {
 
 <template>
     <AppHeader />
-    <div class="ms_background">
+    <AppLoader v-if="store.loading"/>
+    
+    <div class="ms_background" v-else>
         <CardsLists />
     </div>
 </template>

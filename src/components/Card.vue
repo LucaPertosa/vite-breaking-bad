@@ -13,7 +13,7 @@ export default {
     <div class="card mb-4 text-center ms_background1">
         <img class="card-img-top " :src="img" :alt="name">
         <div class="ms_card-body">
-            <h3 class="ms_card-title my-3">{{ name }}</h3>
+            <h3 class="ms_card-title">{{ name }}</h3>
             <p class="card-text">{{ archetype }}</p>
         </div>
     </div>
@@ -34,6 +34,6 @@ export default {
     padding: 15px 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 </style>
